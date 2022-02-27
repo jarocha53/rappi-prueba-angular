@@ -1,0 +1,26 @@
+<button type="button" (click)="sortChannel()">
+  <span aria-hidden="true">&darr;</span>
+  <span aria-hidden="true">&uarr;</span>
+</button>
+
+<form [formGroup]="channelForm">
+  <label for="name">Channel name </label>
+  <input
+    type="text"
+    class="form-control"
+    placeholder="Channel name"
+    id="name"
+    formControlName="name"
+  />
+  <button type="button" [disabled]="validForm()" (click)="addChannel()">+</button>
+</form>
+
+<ul *ngIf="listChannel.length > 0">
+  <li *ngFor="let channel of listChannel; let i = index">
+    {{
+      channel.name
+    }} <button type="button" (click)="deleteChannel(i)">-</button>
+  </li>
+</ul>
+
+

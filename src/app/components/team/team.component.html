@@ -1,0 +1,23 @@
+<h1>Teams and channels</h1>
+
+<ul *ngIf="listTeam.length > 0">
+  <li *ngFor="let team of listTeam">
+    {{
+      team.name
+    }}
+    <app-channel></app-channel>
+  </li>
+</ul>
+
+<h2>Add Team</h2>
+<form [formGroup]="teamForm">
+  <label for="name">Team name </label>
+  <input
+    type="text"
+    class="form-control"
+    placeholder="Team name"
+    id="name"
+    formControlName="name"
+  />
+  <button type="button" [disabled]="validForm()" (click)="addTeam()">+</button>
+</form>
